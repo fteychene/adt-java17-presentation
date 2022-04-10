@@ -2,7 +2,7 @@ package xyz.fteychene.adt;
 
 import static xyz.fteychene.adt.Direction.*;
 
-public class Rover {
+public class WallE {
 
     // Should do something more visual
     public void display(String message) {
@@ -20,7 +20,8 @@ public class Rover {
                     case EAST -> display("Turning west");
                 }
             }
-            case Experiment e -> display("Do some science");
+            case Cute cute -> display("Do something cute anyone can resist");
+            case TakeOver takeOver -> display("Start taking over the WORLD !!!!!!!");
             case Chain chain -> {
                 handle(chain.a());
                 handle(chain.b());
@@ -30,12 +31,13 @@ public class Rover {
 
     public static void main(String[] args) {
         try {
-            var commands = new Move(5)
-                    .then(new Turn(NORTH))
+            var commands = new Turn(NORTH)
+                    .then(new Move(5))
+                    .then(new Cute())
                     .then(new Move(3))
                     .then(new Turn(EAST))
-                    .then(new Experiment());
-            var rover = new Rover();
+                    .then(new TakeOver());
+            var rover = new WallE();
             rover.handle(commands);
         } catch (Exception e) {
             System.out.println("Confusion \uD83D\uDCA5\uD83D\uDCA5\uD83D\uDCA5 (" + e.getMessage() + ")");

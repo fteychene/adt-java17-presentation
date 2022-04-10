@@ -1,6 +1,6 @@
 package xyz.fteychene.start;
 
-public class Rover {
+public class WallE {
 
     // Should do something more visual
     public void display(String message) {
@@ -18,8 +18,10 @@ public class Rover {
                 case "west" -> display("Turning west");
                 default -> throw new IllegalArgumentException("don't know direction "+command.split(" ")[1]);
             }
-        } else if (command.equals("experiment")) {
-            display("Do some science");
+        } else if (command.equals("cute")) {
+            display("Do something cute anyone can resist");
+        } else if (command.equals("takeover")) {
+            display("Start taking over the WORLD !!!!!!!");
         } else {
             throw new IllegalArgumentException("don't know command "+command);
         }
@@ -28,13 +30,14 @@ public class Rover {
 
     public static void main(String[] args) {
         try {
-            var rover = new Rover();
-            rover.handle("move 5");
+            var rover = new WallE();
             rover.handle("turn north");
-            rover.handle("move 3");
+            rover.handle("move 5");
+            rover.handle("cute");
             rover.handle("turn east");
-            rover.handle("sit");
-            rover.handle("experiment");
+            rover.handle("move 3");
+//            rover.handle("sit");
+            rover.handle("takeover");
         } catch (Exception e) {
             System.out.println("Confusion \uD83D\uDCA5\uD83D\uDCA5\uD83D\uDCA5 (" + e.getMessage() + ")");
         }

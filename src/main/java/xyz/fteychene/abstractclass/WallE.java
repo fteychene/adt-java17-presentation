@@ -2,7 +2,7 @@ package xyz.fteychene.abstractclass;
 
 import static xyz.fteychene.abstractclass.Direction.*;
 
-public class Rover {
+public class WallE {
 
     // Should do something more visual
     public void display(String message) {
@@ -16,23 +16,25 @@ public class Rover {
                 switch (t.getDirection()) {
                     case NORTH -> display("Turning north");
                     case SOUTH -> display("Turning south");
-                    case WEST -> display("Turning east");
-                    case EAST -> display("Turning west");
+                    case WEST -> display("Turning west");
+                    case EAST -> display("Turning east");
                 }
             }
-            case Experiment e -> display("Do some science");
+            case Cute e -> display("Do some science");
+            case TakeOver t -> display("Start taking over the WORLD !!!!!!!");
             default -> throw new IllegalArgumentException("don't know command "+command);
         }
     }
 
     public static void main(String[] args) {
         try {
-            var rover = new Rover();
-            rover.handle(new Move(5));
+            var rover = new WallE();
             rover.handle(new Turn(Direction.NORTH));
-            rover.handle(new Move(3));
+            rover.handle(new Move(5));
+            rover.handle(new Cute());
             rover.handle(new Turn(EAST));
-            rover.handle(new Experiment());
+            rover.handle(new Move(3));
+            rover.handle(new TakeOver());
         } catch (Exception e) {
             System.out.println("Confusion \uD83D\uDCA5\uD83D\uDCA5\uD83D\uDCA5 (" + e.getMessage() + ")");
         }

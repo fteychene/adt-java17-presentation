@@ -2,19 +2,21 @@ package xyz.fteychene.state;
 
 import xyz.fteychene.state.command.Chain;
 import xyz.fteychene.state.command.Command;
-import xyz.fteychene.state.command.Experiment;
+import xyz.fteychene.state.command.Cute;
 import xyz.fteychene.state.command.Move;
 import xyz.fteychene.state.command.Start;
 import xyz.fteychene.state.command.Stop;
+import xyz.fteychene.state.command.TakeOver;
 import xyz.fteychene.state.command.Turn;
 import xyz.fteychene.state.command.Wait;
 import xyz.fteychene.state.state.Moving;
 
+import static xyz.fteychene.state.command.Direction.EAST;
 import static xyz.fteychene.state.command.Direction.NORTH;
 import static xyz.fteychene.state.command.Move.Move;
 import static xyz.fteychene.state.command.Turn.Turn;
 
-public class Rover {
+public class WallE {
 
     // Should do something more visual
     public static void display(String message) {
@@ -32,14 +34,16 @@ public class Rover {
                     case EAST -> display("Turning west");
                 }
             }
-            case Experiment e -> display("Do some science");
+            case Cute e -> display("Do something cute anyone can resist");
+            case Start start -> display("Start motors");
+            case Stop stop -> display("Stop motors");
+            case Wait wait -> display("Wait cuteness to be saw");
+            case TakeOver takeOver -> display("Start taking over the WORLD !!!!!!!");
             case Chain chain -> {
                 handle(chain.a());
                 handle(chain.b());
             }
-            case Start start -> display("Start motors");
-            case Stop stop -> display("Stop motors");
-            case Wait wait -> display("Science done");
+            default -> throw new IllegalStateException("Unexpected value: " + command);
         }
     }
 
@@ -60,15 +64,19 @@ public class Rover {
         displayMoving(Move(5));
         // displayMoving(Turn(Direction.NORTH)); // will not compile cause Turn is Command<Idle, Idle>
 
-        var commands = new Start()
+        var commands = Turn(NORTH)
+                .then(new Start())
                 .then(Move(5))
                 .then(new Stop())
-                .then(Turn(NORTH))
+                .then(new Cute())
+                .then(new Wait())
+                .then(new Turn(EAST))
                 .then(new Start())
                 .then(Move(3))
                 .then(new Stop())
-                .then(new Experiment())
-                .then(new Wait());
+                .then(new TakeOver());
+
+
         handle(commands);
 
     }
