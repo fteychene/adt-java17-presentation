@@ -26,7 +26,7 @@ public class WallE {
                     case EAST -> display("Turning east");
                 }
             }
-            case CUTE -> display("Do some science");
+            case CUTE -> display("Do something cute no one can resist");
             case TAKEOVER -> display("Start taking over the WORLD !!!!!!!");
         };
     }

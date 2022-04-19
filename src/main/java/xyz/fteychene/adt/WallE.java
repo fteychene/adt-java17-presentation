@@ -20,7 +20,7 @@ public class WallE {
                     case EAST -> display("Turning west");
                 }
             }
-            case Cute cute -> display("Do something cute anyone can resist");
+            case Cute cute -> display("Do something cute no one can resist");
             case TakeOver takeOver -> display("Start taking over the WORLD !!!!!!!");
             case Chain chain -> {
                 handle(chain.a());

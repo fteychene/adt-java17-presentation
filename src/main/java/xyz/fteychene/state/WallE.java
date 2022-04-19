@@ -34,7 +34,7 @@ public class WallE {
                     case EAST -> display("Turning west");
                 }
             }
-            case Cute e -> display("Do something cute anyone can resist");
+            case Cute e -> display("Do something cute no one can resist");
             case Start start -> display("Start motors");
             case Stop stop -> display("Stop motors");
             case Wait wait -> display("Wait cuteness to be saw");

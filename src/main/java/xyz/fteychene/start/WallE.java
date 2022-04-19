@@ -19,7 +19,7 @@ public class WallE {
                 default -> throw new IllegalArgumentException("don't know direction "+command.split(" ")[1]);
             }
         } else if (command.equals("cute")) {
-            display("Do something cute anyone can resist");
+            display("Do something cute no one can resist");
         } else if (command.equals("takeover")) {
             display("Start taking over the WORLD !!!!!!!");
         } else {

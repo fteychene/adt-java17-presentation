@@ -20,7 +20,7 @@ public class WallE {
                     case EAST -> display("Turning east");
                 }
             }
-            case Cute e -> display("Do some science");
+            case Cute e -> display("Do something cute no one can resist");
             case TakeOver t -> display("Start taking over the WORLD !!!!!!!");
             default -> throw new IllegalArgumentException("don't know command "+command);
         }
