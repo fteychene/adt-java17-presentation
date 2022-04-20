@@ -36,7 +36,6 @@ public class WallE {
             rover.handle("cute");
             rover.handle("turn east");
             rover.handle("move 3");
-//            rover.handle("sit");
             rover.handle("takeover");
         } catch (Exception e) {
             System.out.println("Confusion \uD83D\uDCA5\uD83D\uDCA5\uD83D\uDCA5 (" + e.getMessage() + ")");
