@@ -43,7 +43,6 @@ public class WallE {
                 handle(chain.a());
                 handle(chain.b());
             }
-            default -> throw new IllegalStateException("Unexpected value: " + command);
         }
     }
 
@@ -66,16 +65,15 @@ public class WallE {
 
         var commands = Turn(NORTH)
                 .then(new Start())
-                .then(Move(5))
+                .then(new Move(5))
                 .then(new Stop())
                 .then(new Cute())
                 .then(new Wait())
                 .then(new Turn(EAST))
                 .then(new Start())
-                .then(Move(3))
+                .then(new Move(3))
                 .then(new Stop())
                 .then(new TakeOver());
-
 
         handle(commands);
 
