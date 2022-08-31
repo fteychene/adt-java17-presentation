@@ -13,6 +13,8 @@ import xyz.fteychene.state.state.Moving;
 
 import static xyz.fteychene.state.command.Direction.EAST;
 import static xyz.fteychene.state.command.Direction.NORTH;
+import static xyz.fteychene.state.command.Direction.SOUTH;
+import static xyz.fteychene.state.command.Direction.WEST;
 import static xyz.fteychene.state.command.Move.Move;
 import static xyz.fteychene.state.command.Turn.Turn;
 

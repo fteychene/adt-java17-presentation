@@ -1,10 +1,15 @@
 plugins {
     java
     application
+    `java-library`
 }
 
 group = "org.example"
 version = "1.0-SNAPSHOT"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_18
+}
 
 repositories {
     mavenCentral()
@@ -24,6 +29,14 @@ tasks.withType(JavaCompile::class.java) {
     options.compilerArgs.add("--enable-preview")
 }
 
-//application {
-//    mainClass.set("xyz.fteychene.test.Main")
-//}
+tasks.withType<JavaCompile> {
+    options.compilerArgs.add("--enable-preview")
+}
+
+tasks.withType<JavaExec> {
+    jvmArgs?.add("--enable-preview")
+}
+
+application {
+    mainClass.set("xyz.fteychene.state.WallE")
+}
